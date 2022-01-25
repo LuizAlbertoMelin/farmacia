@@ -14,8 +14,16 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity	
-@Table(name = "tb_categoria")
+@Table(name = "categoria")
 public class Categoria {
+	
+	/**
+	 * Criando a tabela de categoria
+	 * 
+	 * @author Glaucya Nascimento
+	 * @since 25/01/2022
+	 * 
+	 */
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +33,14 @@ public class Categoria {
 	@Size(max = 50)
 	private String tipo;
 	
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
+	}
+
 	@NotBlank
 	@Size(max = 255)
 	private String descricao;
